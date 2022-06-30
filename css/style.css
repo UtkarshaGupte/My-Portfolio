@@ -321,13 +321,13 @@ header {
 .my-skills .skills{
     margin: 1rem 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0;
 }
 
 
 .my-skills .item{
-    padding: 0.5rem 0;
+    padding: 0 0.5rem;
     margin: 0.3rem 0;
     font-size: xx-small;
 }
@@ -407,55 +407,131 @@ header {
     width: 70%;
 }
 
+/* My Projects */
 
-/*  My services section  */
-
-.my-services {
+.my-project {
     background-color: var(--clr-dark);
     background-image: url(../img/services-bg.jpg);
     background-size: cover;
-    /* background-blend-mode: multiply; */
+    background-attachment:fixed; 
     color: var(--clr-light);
     text-align: center;
 }
 
-.section__title--services {
-    color: var(--clr-accent);
+.project-items{   
+    height: 320px;
+    width: 100%;
     position: relative;
 }
-
-.section__title--services::after {
-    content: '';
-    display: block;
-    width: 2em;
-    height: 1px;
-    margin: 0.5em auto 1em;
-    background: var(--clr-light);
-    opacity: 0.25;
+ .projects .project-items:nth-child(1){
+    background: url(../img/carPrices.jpg) center/cover no-repeat;
 }
-
-.services {
-    margin-bottom: 4em;
-}
-
-.service {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-@media (min-width: 800px) {
+.projects .project-items:nth-child(2){
+    background: url(../img/project-img-2.jpg)  center/cover no-repeat;
     
-    .services {
-        display: flex;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .service + .service {
-        margin-left: 2em;
-    }
 }
+.projects .project-items:nth-child(3){
+    background: url(../img/project-img-3.jpg)  center/cover no-repeat;
+    
+}
+.projects .project-items:nth-child(4){
+    background: url(../img/pets.jpg) center/cover no-repeat;
+    
+}
+.projects .project-items:nth-child(5){
+    background: url(../img/project-img-1.jpg)  center/cover no-repeat;
+    
+}
+.projects .project-items:nth-child(6){
+    background: url(../img/portflio.png) center/cover no-repeat;
+    
+}
+
+
+.projects {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    grid-gap: 2rem;
+    
+}
+
+.item-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-accent);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+.projects .project-items .item-overlay a{
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: var(--poppins);
+}
+
+.projects .project-items .item-overlay h3{
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+.projects .project-items:hover .item-overlay{
+    opacity: 0.9;
+}
+
+/* footer */
+
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+
+}
+
+.footer a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
+
 
 .about-me {
     max-width: 1000px;
@@ -476,6 +552,8 @@ header {
             "text img";
         grid-column-gap: 2em;
     }
+    
+
     
     .section__title--aboutme {
         grid-area: title;
@@ -555,80 +633,10 @@ header {
     left: -25px;
 }
 
-/* My Projects */
-
-.my-project {
-    background-color: var(--clr-dark);
-    background-image: url(../img/services-bg.jpg);
-    background-size: cover;
-    /* background-blend-mode: multiply; */
-    color: var(--clr-light);
-    text-align: center;
-}
-
-.my-project .project-items{
-    margin: 2rem 0;
-    height: 320px;
-    width: 100%;
-    position: relative;
-}
-.my-project .projects .project-items:nth-child(1){
-    background: url(../img/carPrices.jpg) center/cover no-repeat;
-}
-.my-project .projects .project-items:nth-child(2){
-    background: url(../img/project-img-2.jpg) center/cover no-repeat;
-}
-.my-project .projects .project-items:nth-child(3){
-    background: url(../img/project-img-3.jpg) center/cover no-repeat;
-}
-.my-project .projects .project-items:nth-child(4){
-    background: url(../img/pets.jpg) center/cover no-repeat;
-}
-.my-project .projects .project-items:nth-child(5){
-    background: url(../img/project-img-1.jpg) center/cover no-repeat;
-}
-.my-project .projects .project-items:nth-child(6){
-    background: url(../img/portflio.png) center/cover no-repeat;
-}
 
 
-.projects .project-items .item-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--clr-accent);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: var(--transition);
-}
-.projects .project-items .item-overlay a{
-    text-transform: capitalize;
-    font-size: 1.25rem;
-    font-weight: 400;
-    font-family: var(--poppins);
-}
+ 
 
-.projects .project-items .item-overlay h3{
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 3px;
-}
-.projects .project-items:hover .item-overlay{
-    opacity: 0.9;
-}
-
-.my-project .projects {
-    margin: 1rem 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
-}
 
 
 /* Project Car */
@@ -642,50 +650,7 @@ header {
 
 
 
-/* footer */
 
-.footer {
-    background: #111;
-    color: var(--clr-accent);
-    text-align: center;
-    padding: 2.5em 0;
-    font-size: var(--fs-h3);
-
-}
-
-.footer a { 
-    color: inherit;
-    text-decoration: none;
-}
-
-.footer__link {
-    font-weight: var(--fw-bold);
-}
-
-.footer__link:hover,
-.social-list__link:hover {
-    opacity: .7;
-}
-
-.footer__link:hover {
-    text-decoration: underline;
-}
-
-.social-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 2em 0;
-    padding: 0;
-}
-
-.social-list__item {
-    margin: 0 .5em;
-}
-
-.social-list__link {
-    padding: .5em;
-}
 
 
 
